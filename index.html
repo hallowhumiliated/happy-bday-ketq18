@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Это тебе :)</title>
-<!-- Скрипт для конфетти -->
+<title>Это тебе, Катюша :)</title>
+<!-- конфетти -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <style>
   body, html {
@@ -33,15 +33,15 @@
   .slide:nth-child(even) .photo-frame { transform: rotate(2deg); }
   .slide:nth-child(odd) .photo-frame { transform: rotate(-2deg); }
 
-  /* Заменили бирюзовый на фиолетовый (#B366FF) в рамке текста */
+  /* фиол */
   .text-box { margin-top: 10px; text-align: center; max-width: 650px; font-size: 18px; line-height: 1.6; background: rgba(15, 15, 17, 0.7); backdrop-filter: blur(5px); padding: 20px; border-radius: 12px; border-left: 4px solid #B366FF; z-index: 2; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
   
-  /* Заменили цвет текста и свечение на фиолетовый */
+  /* цвет текста и свечение */
   h1 { font-size: 32px; color: #B366FF; margin-bottom: 15px; z-index: 2; text-shadow: 0 0 10px rgba(179, 102, 255, 0.3); }
   .hint { font-size: 16px; opacity: 0.6; margin-top: 30px; animation: pulse 2s infinite; z-index: 2; }
   @keyframes pulse { 0% { transform: translateX(0); opacity: 0.4; } 50% { transform: translateX(15px); opacity: 1; } 100% { transform: translateX(0); opacity: 0.4; } }
   
-  /* Фиолетовый курсор */
+  /* Фиолетовый курсор (мб не ворк) */
   .cursor { display: inline-block; width: 10px; height: 20px; background-color: #B366FF; animation: blink 1s infinite; vertical-align: middle; margin-left: 2px;}
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
@@ -111,7 +111,7 @@
   <div class="slide" id="final-slide">
     <h1>С днем рождения, Катя ❤️</h1>
     
-    <!-- фотка финальная -->
+    <!-- Фотка финальная -->
   <div class="photo-frame">
       <img src="7.jpg" alt="финал">
     </div>
@@ -121,7 +121,7 @@
     </div>
 
     <!-- Кнопка и блок для сообщения -->
-    <button id="sad-btn" class="sad-button">Если тебе грустно</button>
+    <button id="sad-btn" class="sad-button">Если тебе грустно (нажимай)</button>
     <div id="sad-message" class="sad-msg-box"></div>
 
   </div>
@@ -171,7 +171,7 @@
     }
   }
 
-  // Конфетти цвета Мику
+  // Конфетти Мику
   function fireConfetti() {
     confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, colors: ['#39C5BB', '#ffffff', '#222222'] });
   }
@@ -188,11 +188,11 @@
 
   // Логика кнопки "Если тебе грустно"
   const sadMessages = [
-    "«Ты вообще-то очень классный человек. Не забывай об этом»",
+    "«Ты вообще-то очень классный человек. Не забывай об этом!»",
     "«Сегодня официально запрещено грустить из-за мелочей»",
-    "«Если день не задался — это не значит, что завтра будет таким же»",
+    "«Если день не задался - это не значит, что завтра будет таким же»",
     "«Даже когда кажется, что всё идёт не так, ты справляешься лучше, чем думаешь»",
-    "«Иногда лучший выход — просто пойти спать. Завтра точно будет понятнее»",
+    "«Иногда лучший выход - просто пойти спать. Завтра точно будет понятнее»",
     "«Вдох-выдох. Ты молодец, и у тебя всё получится»"
   ];
 
