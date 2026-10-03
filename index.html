@@ -44,6 +44,11 @@
   /* Фиолетовый курсор */
   .cursor { display: inline-block; width: 10px; height: 20px; background-color: #B366FF; animation: blink 1s infinite; vertical-align: middle; margin-left: 2px;}
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  /* Кнопка и сообщение "Если грустно" */
+  .sad-button { margin-top: 25px; padding: 12px 24px; background: transparent; color: #B366FF; border: 2px solid #B366FF; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 16px; cursor: pointer; transition: all 0.3s ease; z-index: 2; outline: none; }
+  .sad-button:hover { background: rgba(179, 102, 255, 0.15); box-shadow: 0 0 15px rgba(179, 102, 255, 0.4); }
+  .sad-msg-box { margin-top: 15px; font-size: 15px; color: #e0e0e0; text-align: center; max-width: 600px; min-height: 40px; opacity: 0; transition: opacity 0.3s ease; z-index: 2; font-style: italic; }
 </style>
 </head>
 <body>
@@ -114,6 +119,11 @@
   <div class="text-box" style="min-height: 120px; text-align: left;">
       <span id="typed-text"></span><span class="cursor"></span>
     </div>
+
+    <!-- Кнопка и блок для сообщения -->
+    <button id="sad-btn" class="sad-button">Если тебе грустно</button>
+    <div id="sad-message" class="sad-msg-box"></div>
+
   </div>
 
 </div>
@@ -174,6 +184,30 @@
       typingStarted = true;
       setTimeout(typeWriter, 500);
     }
+  });
+
+  // Логика кнопки "Если тебе грустно"
+  const sadMessages = [
+    "«Ты вообще-то очень классный человек. Не забывай об этом»",
+    "«Сегодня официально запрещено грустить из-за мелочей. Ну хотя бы пять минут»",
+    "«Если день не задался — это не значит, что завтра будет таким же»",
+    "«Лови виртуальные обнимашки 🫂»",
+    "«Помни, что ошибаться и уставать — это абсолютно нормально»",
+    "«Даже когда кажется, что всё идёт не так, ты справляешься лучше, чем думаешь»",
+    "«Иногда лучший выход — просто пойти спать. Завтра точно будет понятнее»",
+    "«Вдох-выдох. Ты молодец, и у тебя всё получится»"
+  ];
+
+  const sadBtn = document.getElementById('sad-btn');
+  const sadMsgBox = document.getElementById('sad-message');
+
+  sadBtn.addEventListener('click', () => {
+    sadMsgBox.style.opacity = 0; // Плавное исчезновение старого текста
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * sadMessages.length);
+      sadMsgBox.innerText = sadMessages[randomIndex];
+      sadMsgBox.style.opacity = 1; // Плавное появление нового текста
+    }, 300);
   });
 </script>
 
