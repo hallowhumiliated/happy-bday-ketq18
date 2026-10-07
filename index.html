@@ -65,6 +65,66 @@
       padding: 15px;
     }
   }
+  /* --- Мобильная адаптация и фикс наложений --- */
+  @media (max-width: 768px) {
+    /* Отключаем фоновых персонажей, чтобы не мешали (по желанию, можно оставить Вариант 2 из прошлого ответа) */
+    .bg-miku, .bg-oc {
+      display: none !important;
+    }
+
+    /* Главный фикс: разрешаем слайдам скроллиться по вертикали, если контент не влезает */
+    .slide {
+      height: 100vh;
+      overflow-y: auto; /* Включает вертикальную прокрутку */
+      justify-content: flex-start; /* Выравнивание сверху, чтобы можно было листать вниз */
+      padding: 40px 15px 60px 15px; /* Свободное место снизу и сверху */
+      -webkit-overflow-scrolling: touch; /* Плавный скролл на айфонах */
+    }
+
+    /* Запрещаем элементам внутри слайда сжиматься и ломать верстку */
+    .photo-frame, .text-box, h1, .sad-button, .sad-msg-box {
+      flex-shrink: 0; 
+    }
+
+    /* Уменьшаем рамку с фото, чтобы она занимала меньше места */
+    .photo-frame {
+      max-width: 90%;
+      max-height: 35vh;
+      padding: 10px 10px 25px 10px;
+      margin-bottom: 15px;
+    }
+    .photo-frame img {
+      max-height: 28vh;
+    }
+
+    /* Делаем текст компактнее */
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .text-box {
+      font-size: 14px;
+      line-height: 1.4;
+      padding: 15px;
+      margin-top: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Делаем отступы для кнопки и сообщения более аккуратными */
+    .sad-button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+    
+    .sad-msg-box {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+  }
 </style>
 </head>
 <body>
