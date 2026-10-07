@@ -49,6 +49,22 @@
   .sad-button { margin-top: 25px; padding: 12px 24px; background: transparent; color: #B366FF; border: 2px solid #B366FF; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 16px; cursor: pointer; transition: all 0.3s ease; z-index: 2; outline: none; }
   .sad-button:hover { background: rgba(179, 102, 255, 0.15); box-shadow: 0 0 15px rgba(179, 102, 255, 0.4); }
   .sad-msg-box { margin-top: 15px; font-size: 15px; color: #e0e0e0; text-align: center; max-width: 600px; min-height: 40px; opacity: 0; transition: opacity 0.3s ease; z-index: 2; font-style: italic; }
+  /* --- Мобильная версия --- */
+  @media (max-width: 768px) {
+    .bg-miku, .bg-oc {
+      display: none !important;
+    }
+    
+    /* Заодно адаптируем рамки под узкий экран */
+    .photo-frame {
+      max-width: 95%;
+      padding: 10px 10px 30px 10px;
+    }
+    .text-box {
+      font-size: 15px; /* Чуть уменьшаем текст, чтобы влезал */
+      padding: 15px;
+    }
+  }
 </style>
 </head>
 <body>
