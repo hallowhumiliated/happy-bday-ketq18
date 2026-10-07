@@ -72,58 +72,42 @@
       display: none !important;
     }
 
-    /* Главный фикс: разрешаем слайдам скроллиться по вертикали, если контент не влезает */
-    .slide {
-      height: 100vh;
-      overflow-y: auto; /* Включает вертикальную прокрутку */
-      justify-content: flex-start; /* Выравнивание сверху, чтобы можно было листать вниз */
-      padding: 40px 15px 60px 15px; /* Свободное место снизу и сверху */
-      -webkit-overflow-scrolling: touch; /* Плавный скролл на айфонах */
-    }
+    /* Отключаем flex-режим для финального слайда, чтобы элементы просто шли друг за другом сверху вниз */
+  #final-slide {
+    display: block !important; 
+    height: 100vh;
+    overflow-y: auto; /* Оставляем прокрутку */
+    padding: 30px 15px 80px 15px; /* Большой отступ снизу, чтобы было удобно листать */
+    text-align: center; /* Центрируем всё содержимое */
+    -webkit-overflow-scrolling: touch;
+  }
 
-    /* Запрещаем элементам внутри слайда сжиматься и ломать верстку */
-    .photo-frame, .text-box, h1, .sad-button, .sad-msg-box {
-      flex-shrink: 0; 
-    }
+  /* Центрируем фото-рамку в блочном режиме */
+  #final-slide .photo-frame {
+    margin: 0 auto 15px auto !important;
+    max-height: 35vh;
+  }
 
-    /* Уменьшаем рамку с фото, чтобы она занимала меньше места */
-    .photo-frame {
-      max-width: 90%;
-      max-height: 35vh;
-      padding: 10px 10px 25px 10px;
-      margin-bottom: 15px;
-    }
-    .photo-frame img {
-      max-height: 28vh;
-    }
+  /* Жестко заставляем рамку с текстом растягиваться */
+  .text-box {
+    height: auto !important; 
+    min-height: min-content !important; /* Рамка будет тянуться ровно за текстом */
+    margin: 0 auto !important; /* Выравниваем по центру */
+    width: 95%; /* Чтобы не прилипала к краям экрана */
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 15px;
+    overflow: visible; 
+  }
 
-    /* Делаем текст компактнее */
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
+  /* Отделяем кнопку от текста */
+  #sad-btn {
+    display: block;
+    margin: 25px auto 10px auto !important; /* Точно задаем отступ в 25px сверху */
+  }
 
-    .text-box {
-      font-size: 14px;
-      line-height: 1.4;
-      padding: 15px;
-      margin-top: 5px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    /* Делаем отступы для кнопки и сообщения более аккуратными */
-    .sad-button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 14px;
-    }
-    
-    .sad-msg-box {
-      margin-top: 10px;
-      font-size: 13px;
-    }
+  #sad-message {
+    margin: 10px auto 0 auto !important;
   }
 </style>
 </head>
